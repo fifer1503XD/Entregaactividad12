@@ -21,12 +21,12 @@ export const login = async (req, res) => {
         }
         return res.status(401).json({
           
-            message: "401 - Es necesario autenticar para obtener la respuesta solicitada."
+            message: "401 - Es necesario autenticar para obtener la respuesta solicitada. "
         });
     }
     return res.status(401).json({
      
-        message: "401 - Es necesario autenticar para obtener la respuesta solicitada."
+        message: "401 - Es necesario autenticar para obtener la respuesta solicitada. correo"
     });
 }
 

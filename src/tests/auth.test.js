@@ -28,7 +28,7 @@ const invalidUser = {
 
 let token = "";
 let invalidToken = "2yhasidi12691djsdkabao";
-let userID = 0;
+let userID = 2;
 
 describe("Pruebas Usuarios", () => {
   it("Agregar al usuario Gustavo", async () => {
@@ -116,4 +116,3 @@ afterAll(async (done) => {
   await Users.destroy({ where: { email: invalidUser.email } });
   done();
 });
-
