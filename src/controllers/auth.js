@@ -15,6 +15,7 @@ export const login = async (req, res) => {
         if(comparar){
             const token = generateJWT(results);
             return  res.status(201).json({
+             message: "has iniciado sesion correctamente",
                 token
             });
         }
