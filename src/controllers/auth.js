@@ -47,9 +47,7 @@ export const signIn = async (req, res) => {
         const encryptedPass = bcryptjs.hashSync(pass, 10); //encripto la contraseña con bcrypt
         req.body.password = encryptedPass; //reasignando la contraseña encriptada
         const results = await Users.create(req.body);
-        return res.status(201).json({
-            email
-        });
+        return res.status(201).json(results);
     }catch(error){
         console.log(error);
     }

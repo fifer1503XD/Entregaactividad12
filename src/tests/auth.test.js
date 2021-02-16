@@ -28,7 +28,7 @@ const invalidUser = {
 
 let token = "";
 let invalidToken = "2yhasidi12691djsdkabao";
-let userID = 2;
+let userID = 1;
 
 describe("Pruebas Usuarios", () => {
   it("Agregar al usuario Gustavo", async () => {

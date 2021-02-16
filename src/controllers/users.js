@@ -2,8 +2,8 @@ import {Users} from "../models";
 import {validateJWT} from "../middlewares/jwt";
 
 export const verifyUsers = async (req, res) => {
-    let token = req.header('authorization').slice(7);
-    console.log(token)
+    let bearerToken = req.header('authorization')
+    const token = bearerToken.split(' ')[1]
     if(await validateJWT(token)===true){
         const results = await Users.findAll();
         return res.status(201).json(results);
@@ -16,13 +16,13 @@ export const verifyUsers = async (req, res) => {
 }
 
 export const verifyUsersId = async (req, res) => {
-    let token = req.header('authorization').slice(7);
+    let bearerToken = req.header('authorization')
+    const token = bearerToken.split(' ')[1]
     console.log(token)
     if(await validateJWT(token)===true){
-        const results = await Users.findOne({ 
-             attributes: ['email', 'firstName', 'lastName'],
-            where: {id:req.params.id}
-        });
+        let idNum=Number(req.params.id)
+        console.log(idNum)
+        const results = await Users.findOne({where: {id:idNum},atributtes:"lastName"});
         console.log(typeof req.params.id)
         return res.json(results);
     }else{
